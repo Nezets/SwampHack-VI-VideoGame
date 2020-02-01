@@ -11,13 +11,14 @@
 
 
 
-class DungeonFloor {
+class DungeonFloor : public sf::Sprite{
     map<string, Room> rooms;
     string currPos;
 public:
     DungeonFloor();
 
     string &getCurrPos();
+
 
     void setCurrPos(const string &currPos);
 

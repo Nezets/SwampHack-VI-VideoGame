@@ -6,6 +6,8 @@
 
 Door::Door() {
     setTexture(TextureManager::GetTexture("door"));
+    this->scale(.7f, .7f);
+    this->setOrigin(100, 100);
     locked = false;
     bossDoor = false;
     visable = false;

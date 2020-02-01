@@ -7,6 +7,7 @@
 std::mt19937 random_mt(time(nullptr));
 
 DungeonFloor::DungeonFloor() {
+    setTexture(TextureManager::GetTexture("walls"));
     currPos = "C3";
     randomizeRooms();
     setDoorAmounts();
@@ -62,6 +63,13 @@ void DungeonFloor::randomizeRooms() {
         }
         rooms.emplace(tempCurrent, room);
         rooms[tempCurrent].setRoomId(tempCurrent);
+        if(rooms.size() == 6){
+            rooms[tempCurrent].setBossRoom(true);
+            rooms[tempCurrent].setTexture(TextureManager::GetTexture("bossfloor"));
+            for (int i = 0; i < 4; ++i) {
+                rooms[tempCurrent].getDoors()[i].setTexture(TextureManager::GetTexture("bossdoor"));
+            }
+        }
     }
 }
 
@@ -88,12 +96,18 @@ void DungeonFloor::setDoorAmounts(){
         if(rooms.find(string() + ID_X + ID_Y) != rooms.end()){
             room.second.incrementDoorAmount();
             room.second.getDoors()[0].setVisable(true);
+            if(rooms[string() + ID_X + ID_Y].isBossRoom()){
+                room.second.getDoors()[0].setTexture(TextureManager::GetTexture("bossdoor"));
+            }
         }
         // Find if room below exists
         ID_Y += 2;
         if(rooms.find(string() + ID_X + ID_Y) != rooms.end()){
             room.second.incrementDoorAmount();
             room.second.getDoors()[3].setVisable(true);
+            if(rooms[string() + ID_X + ID_Y].isBossRoom()){
+                room.second.getDoors()[3].setTexture(TextureManager::GetTexture("bossdoor"));
+            }
         }
         // Find if left room exists
         ID_Y -= 1;
@@ -101,11 +115,17 @@ void DungeonFloor::setDoorAmounts(){
         if(rooms.find(string() + ID_X + ID_Y) != rooms.end()){
             room.second.incrementDoorAmount();
             room.second.getDoors()[1].setVisable(true);
+            if(rooms[string() + ID_X + ID_Y].isBossRoom()){
+                room.second.getDoors()[1].setTexture(TextureManager::GetTexture("bossdoor"));
+            }
         }
         ID_X += 2;
         if(rooms.find(string() + ID_X + ID_Y) != rooms.end()){
             room.second.incrementDoorAmount();
             room.second.getDoors()[2].setVisable(true);
+            if(rooms[string() + ID_X + ID_Y].isBossRoom()){
+                room.second.getDoors()[2].setTexture(TextureManager::GetTexture("bossdoor"));
+            }
         }
     }
 }

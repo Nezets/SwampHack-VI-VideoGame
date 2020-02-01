@@ -55,6 +55,8 @@ public:
 
     void setRoomId(string roomId);
 
+    void setBossRoom(bool bossRoom);
+
     bool isBossRoom() const;
 
     bool isDoorsLocked() const;
