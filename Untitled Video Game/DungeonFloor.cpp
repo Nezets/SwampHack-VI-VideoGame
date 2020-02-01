@@ -3,9 +3,11 @@
 //
 
 #include "DungeonFloor.h"
+#include <iostream>
 std::mt19937 random_mt(time(nullptr));
 
 DungeonFloor::DungeonFloor() {
+    currPos = "C3";
     randomizeRooms();
     setDoorAmounts();
 }
@@ -29,41 +31,41 @@ DungeonFloor::DungeonFloor() {
  */
 void DungeonFloor::randomizeRooms() {
     Room room;
-    rooms.emplace("C3", room);
+    rooms.emplace(currPos, room);
     int doorPos;
-    string current = "C3";
+    string tempCurrent = currPos;
 
     while(rooms.size() != 6){
         doorPos = random(0,3);
-        if((current[0] == 'A' && doorPos == 1) || (current[0] == 'F' && doorPos == 2)){
+        if((tempCurrent[0] == 'A' && doorPos == 1) || (tempCurrent[0] == 'F' && doorPos == 2)){
             continue;
         }
-        if((current[1] == '0' && doorPos == 0) || (current[1] == '5' && doorPos == 3)){
+        if((tempCurrent[1] == '0' && doorPos == 0) || (tempCurrent[1] == '5' && doorPos == 3)){
             continue;
         }
         switch (doorPos){
             case 0:
-                current[1]--;
+                tempCurrent[1]--;
                 break;
             case 1:
-                current[0]--;
+                tempCurrent[0]--;
                 break;
             case 2:
-                current[0]++;
+                tempCurrent[0]++;
                 break;
             case 3:
-                current[1]++;
+                tempCurrent[1]++;
                 break;
             default:
                 // Hopefully never gets to here ;(
                 break;
         }
-        rooms.emplace(current, room);
-        rooms[current].setRoomId(current);
+        rooms.emplace(tempCurrent, room);
+        rooms[tempCurrent].setRoomId(tempCurrent);
     }
 }
 
-const map<string, Room> &DungeonFloor::getRooms() const {
+map<string, Room> &DungeonFloor::getRooms() {
     return rooms;
 }
 
@@ -72,6 +74,7 @@ int DungeonFloor::random(int min, int max) {
     return dist(random_mt);
 }
 
+// This fuction sets the door amounts and sets the visable tag for the door if it exists
 void DungeonFloor::setDoorAmounts(){
     for(auto &room : rooms){
         char ID_X = room.first[0];
@@ -82,27 +85,56 @@ void DungeonFloor::setDoorAmounts(){
         */
         // Find if room above exists
         ID_Y--;
-        if(rooms.find(std::to_string(ID_X + ID_Y)) != rooms.end()){
+        if(rooms.find(string() + ID_X + ID_Y) != rooms.end()){
             room.second.incrementDoorAmount();
             room.second.getDoors()[0].setVisable(true);
         }
         // Find if room below exists
         ID_Y += 2;
-        if(rooms.find(std::to_string(ID_X + ID_Y)) != rooms.end()){
+        if(rooms.find(string() + ID_X + ID_Y) != rooms.end()){
             room.second.incrementDoorAmount();
             room.second.getDoors()[3].setVisable(true);
         }
         // Find if left room exists
         ID_Y -= 1;
         ID_X--;
-        if(rooms.find(std::to_string(ID_X + ID_Y)) != rooms.end()){
+        if(rooms.find(string() + ID_X + ID_Y) != rooms.end()){
             room.second.incrementDoorAmount();
             room.second.getDoors()[1].setVisable(true);
         }
         ID_X += 2;
-        if(rooms.find(std::to_string(ID_X + ID_Y)) != rooms.end()){
+        if(rooms.find(string() + ID_X + ID_Y) != rooms.end()){
             room.second.incrementDoorAmount();
             room.second.getDoors()[2].setVisable(true);
         }
     }
+}
+
+void DungeonFloor::moveRoom(string direction) {
+    auto currDoors = rooms[currPos].getDoors();
+    if (direction == "north"){
+        if(currDoors[0].isVisable() && !currDoors[0].isLocked()){
+            currPos[1]--;
+        }
+    } else if (direction == "west"){
+        if(currDoors[1].isVisable() && !currDoors[1].isLocked()){
+            currPos[0]--;
+        }
+    } else if (direction == "east"){
+        if(currDoors[2].isVisable() && !currDoors[2].isLocked()){
+            currPos[0]++;
+        }
+    } else if (direction == "south"){
+        if(currDoors[3].isVisable() && !currDoors[3].isLocked()){
+            currPos[1]++;
+        }
+    }
+    std::cout << currPos << std::endl;
+}
+string &DungeonFloor::getCurrPos() {
+    return currPos;
+}
+
+void DungeonFloor::setCurrPos(const string &currPos) {
+    DungeonFloor::currPos = currPos;
 }

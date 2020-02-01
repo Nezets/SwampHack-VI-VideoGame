@@ -35,6 +35,7 @@ class Room : public sf::Sprite {
     bool bossRoom;
     // All doors will be locked when player enters a room, they open when all enemies are gone
     bool doorsLocked;
+    void setDoorPos();
 
     vector<Door> doors;
     /*      0

@@ -11,6 +11,7 @@ Room::Room() {
     bossRoom = false;
     doorsLocked = false;
     doors.resize(4);
+    setDoorPos();
 }
 
 int Room::getDoorAmount() const {
@@ -39,4 +40,11 @@ void Room::setRoomId(string roomId) {
 
 vector<Door> &Room::getDoors() {
     return doors;
+}
+
+void Room::setDoorPos() {
+    doors[0].move(350, 5);
+    doors[1].move(5, 250);
+    doors[2].move(700, 250);
+    doors[3].move(350, 500);
 }

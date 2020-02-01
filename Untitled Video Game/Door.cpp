@@ -30,3 +30,7 @@ void Door::setBossDoor(bool bossDoor) {
 void Door::setVisable(bool visable) {
     Door::visable = visable;
 }
+
+bool Door::isVisable() const {
+    return visable;
+}

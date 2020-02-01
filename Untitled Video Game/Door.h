@@ -20,6 +20,8 @@ public:
 
     void setVisable(bool visable);
 
+    bool isVisable() const;
+
     bool isBossDoor() const;
     void setLocked(bool locked);
     void setBossDoor(bool bossDoor);
