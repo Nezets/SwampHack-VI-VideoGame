@@ -48,6 +48,9 @@
     <ClInclude Include="UI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp">
@@ -84,6 +87,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

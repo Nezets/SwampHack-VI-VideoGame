@@ -10,15 +10,16 @@ int main() {
 	//SFML Stuff
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Rouge Dungeon");
 	window.setFramerateLimit(60);
-
+	window.setMouseCursorVisible(false);
 	//Objects
 	DungeonFloor floor1;
 	PC pc;
 	pc.setPosition(300, 300);
 	BulletManager bullets = BulletManager();
 	sf::Sprite crosshair;
+	crosshair.setOrigin(720, 423);
 	crosshair.setTexture(TextureManager::GetTexture("Crosshair"));
-
+	UI* ui = new UI();
 
 	// run the program as long as the window is open
 	while (window.isOpen())
@@ -40,29 +41,30 @@ int main() {
 
 			
 		}
-		if (event.type == sf::Event::KeyPressed) {
-			if (event.key.code == sf::Keyboard::A || event.key.code == sf::Keyboard::Left) {
-				pc.move(pc.getMs() * -1.f, 0.f);
-			}
-			if (event.key.code == sf::Keyboard::W || event.key.code == sf::Keyboard::Up) {
-				pc.move(0.f, pc.getMs());
-			}
-			if (event.key.code == sf::Keyboard::D || event.key.code == sf::Keyboard::Right) {
-				pc.move(pc.getMs(), 0.f);
-			}
-			if (event.key.code == sf::Keyboard::S || event.key.code == sf::Keyboard::Down) {
-				pc.move(0.f, pc.getMs() * -1.f);
-			}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) ){
+			pc.move(-10.f, 0.f);
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+			pc.move(0.f,-10.f);
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+			pc.move(0.f, 10.f);
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) ){
+			pc.move(10.f, 0.f);
 		}
 
 		window.clear();
-
-		ProgressBar* bar = new ProgressBar(window);
+		ui.draw(window, pc);
 		bullets.updateBullets(window);
 		//Stuff to upload because mess
 		window.draw(pc);
 		pc.pointMouseCursor(window);
-		crosshair.setPosition(sf::Mouse::);
+		crosshair.setPosition(sf::Mouse::getPosition().x,sf::Mouse::getPosition().y);
 		window.draw(crosshair);
 		window.display();
 

@@ -25,6 +25,9 @@ Character::Character() {
 	//Flags
 	alive = false;
 	moving = false;
+	hidden = false;
+
+	counter = 0;
 }
 
 float Character::getCurHp()
@@ -69,6 +72,36 @@ float Character::getAngle()
 sf::Vector2f Character::getCurVelocity()
 {
 	return curVelocity;
+}
+
+bool Character::isHidden()
+{
+	return hidden;
+}
+
+void Character::setHidden(bool x)
+{
+	hidden = x;
+}
+
+void Character::setMs(float x)
+{
+	ms = x;
+}
+
+void Character::setDamage(float x)
+{
+	damage = x;
+}
+
+void Character::incrementCounter()
+{
+	counter++;
+}
+
+void Character::resetCounter()
+{
+	counter = 0;
 }
 
 

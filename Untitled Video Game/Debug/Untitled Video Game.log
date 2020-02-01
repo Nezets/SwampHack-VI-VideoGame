@@ -1,2 +1,42 @@
-﻿  UI.cpp
-  Untitled Video Game.vcxproj -> C:\Users\xstev\Source\Repos\Untitled Video Game\Debug\Untitled Video Game.exe
+﻿  Bullet.cpp
+  BulletManager.cpp
+  Character.cpp
+C:\Users\xstev\Source\Repos\Untitled Video Game\Bullet.cpp(4,11): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Enemy.cpp
+  EnemyList.cpp
+  PC.cpp
+C:\Users\xstev\Source\Repos\Untitled Video Game\Character.cpp(140,26): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\xstev\Source\Repos\Untitled Video Game\PC.cpp(9,2): error C2065: 'health': undeclared identifier
+C:\Users\xstev\Source\Repos\Untitled Video Game\PC.cpp(10,2): error C2065: 'maxHealth': undeclared identifier
+C:\Users\xstev\Source\Repos\Untitled Video Game\PC.cpp(18,9): error C2039: 'getHealth': is not a member of 'PC'
+C:\Users\xstev\Source\Repos\Untitled Video Game\PC.h(3): message : see declaration of 'PC'
+C:\Users\xstev\Source\Repos\Untitled Video Game\PC.cpp(20,9): error C2065: 'health': undeclared identifier
+C:\Users\xstev\Source\Repos\Untitled Video Game\PC.cpp(22,9): error C2039: 'getMaxHealth': is not a member of 'PC'
+C:\Users\xstev\Source\Repos\Untitled Video Game\PC.h(3): message : see declaration of 'PC'
+C:\Users\xstev\Source\Repos\Untitled Video Game\PC.cpp(24,9): error C2065: 'maxHealth': undeclared identifier
+C:\Users\xstev\Source\Repos\Untitled Video Game\PC.cpp(32,9): error C2065: 'Level': undeclared identifier
+  main.cpp
+C:\Users\xstev\Source\Repos\Untitled Video Game\PC.cpp(37,9): error C2065: 'maxLevel': undeclared identifier
+C:\Users\xstev\Source\Repos\Untitled Video Game\main.cpp(22,2): error C2065: 'UI': undeclared identifier
+C:\Users\xstev\Source\Repos\Untitled Video Game\main.cpp(22,6): error C2065: 'ui': undeclared identifier
+C:\Users\xstev\Source\Repos\Untitled Video Game\main.cpp(22,17): error C2061: syntax error: identifier 'UI'
+C:\Users\xstev\Source\Repos\Untitled Video Game\main.cpp(62,3): error C2065: 'ui': undeclared identifier
+C:\Users\xstev\Source\Repos\Untitled Video Game\main.cpp(67,76): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\xstev\Source\Repos\Untitled Video Game\main.cpp(67,76): warning C4244:         with
+C:\Users\xstev\Source\Repos\Untitled Video Game\main.cpp(67,76): warning C4244:         [
+C:\Users\xstev\Source\Repos\Untitled Video Game\main.cpp(67,76): warning C4244:             T=int
+C:\Users\xstev\Source\Repos\Untitled Video Game\main.cpp(67,76): warning C4244:         ]
+  UI.cpp
+C:\Users\xstev\Source\Repos\Untitled Video Game\main.cpp(67,49): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\xstev\Source\Repos\Untitled Video Game\main.cpp(67,49): warning C4244:         with
+C:\Users\xstev\Source\Repos\Untitled Video Game\main.cpp(67,49): warning C4244:         [
+C:\Users\xstev\Source\Repos\Untitled Video Game\main.cpp(67,49): warning C4244:             T=int
+C:\Users\xstev\Source\Repos\Untitled Video Game\main.cpp(67,49): warning C4244:         ]
+C:\Users\xstev\Source\Repos\Untitled Video Game\UI.h(14,40): error C2061: syntax error: identifier 'PC'
+C:\Users\xstev\Source\Repos\Untitled Video Game\UI.cpp(6,29): error C2512: 'ProgressBar::ProgressBar': no appropriate default constructor available
+C:\Users\xstev\Source\Repos\Untitled Video Game\UI.cpp(7,25): error C2512: 'ProgressBar::ProgressBar': no appropriate default constructor available
+C:\Users\xstev\Source\Repos\Untitled Video Game\UI.cpp(10,18): error C2065: 'green': undeclared identifier
+C:\Users\xstev\Source\Repos\Untitled Video Game\UI.cpp(11,14): error C2065: 'cyan': undeclared identifier
+C:\Users\xstev\Source\Repos\Untitled Video Game\UI.cpp(17,1): error C2511: 'void UI::draw(sf::RenderWindow &,PC *)': overloaded member function not found in 'UI'
+  Generating Code...
+C:\Users\xstev\Source\Repos\Untitled Video Game\UI.h(5): message : see declaration of 'UI'

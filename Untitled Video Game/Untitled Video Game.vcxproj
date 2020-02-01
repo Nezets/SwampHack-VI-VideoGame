@@ -135,6 +135,7 @@
     <ClInclude Include="Door.h" />
     <ClInclude Include="DungeonFloor.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyList.h" />
     <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="PC.h" />
@@ -148,6 +149,7 @@
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="DungeonFloor.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyList.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="PC.cpp" />

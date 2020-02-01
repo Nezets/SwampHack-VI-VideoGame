@@ -22,7 +22,27 @@ void BulletManager::updateBullets(sf::RenderWindow& window)
 {
 	for (Bullet* bullet : bullets) {
 		bullet->moveTowardMouse(window);
+		
+		if (bullet->getPosition().x < 0 || bullet->getPosition().x > window.getSize().x || bullet->getPosition().y < 0 || bullet->getPosition().y > window.getSize().y) {
+			bullet->setHidden(true);
+		}
+		if(!bullet->isHidden()){
 		window.draw(*bullet);
+		}
+	}
+}
+
+void BulletManager::updateBullets(sf::RenderWindow& window, float x, float y)
+{
+	for (Bullet* bullet : bullets) {
+		bullet->moveToPos(x,y);
+
+		if (bullet->getPosition().x < 0 || bullet->getPosition().x > window.getSize().x || bullet->getPosition().y < 0 || bullet->getPosition().y > window.getSize().y) {
+			bullet->setHidden(true);
+		}
+		if (!bullet->isHidden()) {
+			window.draw(*bullet);
+		}
 	}
 }
 

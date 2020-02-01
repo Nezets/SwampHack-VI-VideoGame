@@ -1,16 +1,20 @@
 #pragma once
 #include "Character.h"
 class PC : public Character{
-
+private:
 	//Level Stats
+	
 	int exp;
 	int dmgLevel;
 	int msLevel;
 	int atkSpdLevel;
-
+	int level;
+	int maxExp;
 	//Flags
 public:
 	PC();
+
+	
 
 
 	//Exp Functions
@@ -18,6 +22,9 @@ public:
 	void upgradeLevel(short type);
 
 	int getExp();
+	int getLevel();
+	int getMaxExp();
+
 
 	//Level Stuff
 	int getDmgLevel();

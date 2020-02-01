@@ -1,0 +1,25 @@
+﻿  Bullet.cpp
+  BulletManager.cpp
+C:\Users\xstev\OneDrive\Documents\GitHub\SwampHack-VI-VideoGame\Untitled Video Game\Character.h(3,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Character.cpp
+C:\Users\xstev\OneDrive\Documents\GitHub\SwampHack-VI-VideoGame\Untitled Video Game\Character.h(3,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Door.cpp
+C:\Users\xstev\OneDrive\Documents\GitHub\SwampHack-VI-VideoGame\Untitled Video Game\Character.h(3,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  DungeonFloor.cpp
+C:\Users\xstev\OneDrive\Documents\GitHub\SwampHack-VI-VideoGame\Untitled Video Game\Door.h(10,10): fatal error C1083: Cannot open include file: 'SFML/Graphics/Sprite.hpp': No such file or directory
+  Enemy.cpp
+C:\Users\xstev\OneDrive\Documents\GitHub\SwampHack-VI-VideoGame\Untitled Video Game\Room.h(9,10): fatal error C1083: Cannot open include file: 'SFML/Graphics/Sprite.hpp': No such file or directory
+  ProgressBar.cpp
+C:\Users\xstev\OneDrive\Documents\GitHub\SwampHack-VI-VideoGame\Untitled Video Game\Character.h(3,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Room.cpp
+C:\Users\xstev\OneDrive\Documents\GitHub\SwampHack-VI-VideoGame\Untitled Video Game\ProgressBar.h(2,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  PC.cpp
+C:\Users\xstev\OneDrive\Documents\GitHub\SwampHack-VI-VideoGame\Untitled Video Game\Room.h(9,10): fatal error C1083: Cannot open include file: 'SFML/Graphics/Sprite.hpp': No such file or directory
+  main.cpp
+C:\Users\xstev\OneDrive\Documents\GitHub\SwampHack-VI-VideoGame\Untitled Video Game\Character.h(3,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  TextureManager.cpp
+C:\Users\xstev\OneDrive\Documents\GitHub\SwampHack-VI-VideoGame\Untitled Video Game\TextureManager.h(2,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  UI.cpp
+C:\Users\xstev\OneDrive\Documents\GitHub\SwampHack-VI-VideoGame\Untitled Video Game\TextureManager.h(2,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Generating Code...
+C:\Users\xstev\OneDrive\Documents\GitHub\SwampHack-VI-VideoGame\Untitled Video Game\ProgressBar.h(2,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory

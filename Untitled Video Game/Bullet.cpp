@@ -6,7 +6,10 @@ Bullet::Bullet(float damage_) {
 	setTexture(TextureManager::GetTexture("Bullet"));
 	setOrigin(160, 160);
 	setScale(0.5f, 0.5f);
+
 }
+
+
 
 int Bullet::getDamage()
 {

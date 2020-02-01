@@ -21,11 +21,10 @@ public:
 
 	void setVisable(bool visable);
 
-    bool isVisable() const;
+	bool isBossDoor() const;
+	void setLocked(bool locked);
+	void setBossDoor(bool bossDoor);
 
-    bool isBossDoor() const;
-    void setLocked(bool locked);
-    void setBossDoor(bool bossDoor);
 };
 
 

@@ -11,5 +11,6 @@ private:
 
 public:
 	UI();
+	void draw(sf::RenderWindow& window, PC* player);
 };
 

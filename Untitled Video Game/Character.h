@@ -21,10 +21,13 @@ class Character : public sf::Sprite {
 	bool moving;
 
 	bool invincible;
-
+	bool hidden;
 	//Take Damage
 	bool isInvincible();
 	int invulnTime;
+
+
+	int counter;
 
 public:
 	//Constructors
@@ -41,7 +44,16 @@ public:
 	float getCurY();
 	float getAngle();
 	sf::Vector2f getCurVelocity();
+	bool isHidden();
 
+	//Setters
+	void setHidden(bool x);
+	void setMs(float x);
+	void setDamage(float x);
+
+	//Counter
+	void incrementCounter();
+	void resetCounter();
 
 	//HP Functions
 	void takeDamage(int dmgTaken);

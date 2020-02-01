@@ -7,7 +7,6 @@ class Bullet : public Character
 	//Add Sprite stuff
 public:
 	Bullet(float damage_);
-
 	int getDamage();
 	int getSpeed();
 
