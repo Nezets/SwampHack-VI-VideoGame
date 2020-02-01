@@ -31,7 +31,7 @@ class Room : public sf::Sprite {
     //Rooms have up to 4 doors, and must have at least one
     int doorAmount;
     // Look above for context on room IDs
-    int roomID;
+    string roomID;
     bool bossRoom;
     // All doors will be locked when player enters a room, they open when all enemies are gone
     bool doorsLocked;
@@ -46,7 +46,13 @@ public:
     Room();
     int getDoorAmount() const;
 
-    int getRoomId() const;
+    vector<Door> &getDoors();
+
+    void incrementDoorAmount();
+
+    string getRoomId();
+
+    void setRoomId(string roomId);
 
     bool isBossRoom() const;
 

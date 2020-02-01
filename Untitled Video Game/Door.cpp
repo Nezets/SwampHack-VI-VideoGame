@@ -8,6 +8,7 @@ Door::Door() {
     setTexture(TextureManager::GetTexture("door"));
     locked = false;
     bossDoor = false;
+    visable = false;
 }
 
 bool Door::isLocked() const {
@@ -24,4 +25,8 @@ void Door::setLocked(bool locked) {
 
 void Door::setBossDoor(bool bossDoor) {
     Door::bossDoor = bossDoor;
+}
+
+void Door::setVisable(bool visable) {
+    Door::visable = visable;
 }

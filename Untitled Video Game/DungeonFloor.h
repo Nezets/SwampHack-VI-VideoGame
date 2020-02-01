@@ -16,6 +16,7 @@ class DungeonFloor {
 public:
     DungeonFloor();
     void randomizeRooms();
+    void setDoorAmounts();
     int random(int min, int max);
     const map<string, Room> &getRooms() const;
 };

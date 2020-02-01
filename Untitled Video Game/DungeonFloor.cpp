@@ -7,6 +7,7 @@ std::mt19937 random_mt(time(nullptr));
 
 DungeonFloor::DungeonFloor() {
     randomizeRooms();
+    setDoorAmounts();
 }
 /*
  * A0 B0 C0 D0 E0 F0
@@ -58,6 +59,7 @@ void DungeonFloor::randomizeRooms() {
                 break;
         }
         rooms.emplace(current, room);
+        rooms[current].setRoomId(current);
     }
 }
 
@@ -68,4 +70,39 @@ const map<string, Room> &DungeonFloor::getRooms() const {
 int DungeonFloor::random(int min, int max) {
     std::uniform_int_distribution<int> dist(min, max);
     return dist(random_mt);
+}
+
+void DungeonFloor::setDoorAmounts(){
+    for(auto &room : rooms){
+        char ID_X = room.first[0];
+        char ID_Y = room.first[1];
+        /*      0
+        * 1          2
+        *      3
+        */
+        // Find if room above exists
+        ID_Y--;
+        if(rooms.find(std::to_string(ID_X + ID_Y)) != rooms.end()){
+            room.second.incrementDoorAmount();
+            room.second.getDoors()[0].setVisable(true);
+        }
+        // Find if room below exists
+        ID_Y += 2;
+        if(rooms.find(std::to_string(ID_X + ID_Y)) != rooms.end()){
+            room.second.incrementDoorAmount();
+            room.second.getDoors()[3].setVisable(true);
+        }
+        // Find if left room exists
+        ID_Y -= 1;
+        ID_X--;
+        if(rooms.find(std::to_string(ID_X + ID_Y)) != rooms.end()){
+            room.second.incrementDoorAmount();
+            room.second.getDoors()[1].setVisable(true);
+        }
+        ID_X += 2;
+        if(rooms.find(std::to_string(ID_X + ID_Y)) != rooms.end()){
+            room.second.incrementDoorAmount();
+            room.second.getDoors()[2].setVisable(true);
+        }
+    }
 }

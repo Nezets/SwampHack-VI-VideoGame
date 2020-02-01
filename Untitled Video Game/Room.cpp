@@ -7,7 +7,7 @@
 Room::Room() {
     setTexture(TextureManager::GetTexture("floor"));
     doorAmount = 0;
-    roomID = 0;
+    roomID = "";
     bossRoom = false;
     doorsLocked = false;
     doors.resize(4);
@@ -17,7 +17,7 @@ int Room::getDoorAmount() const {
     return doorAmount;
 }
 
-int Room::getRoomId() const {
+string Room::getRoomId() {
     return roomID;
 }
 
@@ -27,4 +27,16 @@ bool Room::isBossRoom() const {
 
 bool Room::isDoorsLocked() const {
     return doorsLocked;
+}
+
+void Room::incrementDoorAmount() {
+    Room::doorAmount++;
+}
+
+void Room::setRoomId(string roomId) {
+    roomID = roomId;
+}
+
+vector<Door> &Room::getDoors() {
+    return doors;
 }

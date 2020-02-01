@@ -12,10 +12,14 @@
 class Door : public sf::Sprite {
     bool locked;
     bool bossDoor;
+    bool visable;
 public:
     Door();
 
     bool isLocked() const;
+
+    void setVisable(bool visable);
+
     bool isBossDoor() const;
     void setLocked(bool locked);
     void setBossDoor(bool bossDoor);
