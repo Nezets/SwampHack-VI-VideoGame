@@ -5,16 +5,19 @@
 #ifndef ROUGEGAME_DUNGEONFLOOR_H
 #define ROUGEGAME_DUNGEONFLOOR_H
 
+#include <random>
 #include "Room.h"
+#include "ctime"
+
 
 
 class DungeonFloor {
-    map<int, Room> rooms;
+    map<string, Room> rooms;
 public:
     DungeonFloor();
     void randomizeRooms();
-
-    const vector<Room> &getRooms() const;
+    int random(int min, int max);
+    const map<string, Room> &getRooms() const;
 };
 
 

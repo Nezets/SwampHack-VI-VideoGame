@@ -11,12 +11,12 @@
 #include "Door.h"
 
 /*
- * 00 01 02 03 04 05
- * 06 07 08 09 10 11
- * 12 13 14 15 16 17
- * 18 19 20 21 22 23
- * 24 25 26 27 28 29
- * 30 31 32 33 34 35
+ * A0 B0 C0 D0 E0 F0
+ * A1 B1 C1 D1 E1 F1
+ * A2 B2 C2 D2 E2 F2
+ * A3 B3 C3 D3 E3 F3
+ * A4 B4 C4 D4 E4 F4
+ * A5 B5 C5 D5 E5 F5
  *
  * Dungeon floor will comprise of a 6 by 6
  * out of these, only 6 will be rooms, rest will not exist
