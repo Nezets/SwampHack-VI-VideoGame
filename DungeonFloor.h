@@ -1,4 +1,3 @@
-
 //
 // Created by Michael Ivanov on 1/31/2020.
 //
@@ -12,14 +11,22 @@
 
 
 
-class DungeonFloor {
-	map<string, Room> rooms;
+class DungeonFloor : public sf::Sprite{
+    map<string, Room> rooms;
+    string currPos;
 public:
-	DungeonFloor();
-	void randomizeRooms();
-	void setDoorAmounts();
-	int random(int min, int max);
-	const map<string, Room>& getRooms() const;
+    DungeonFloor();
+
+    string &getCurrPos();
+
+
+    void setCurrPos(const string &currPos);
+
+    void randomizeRooms();
+    void setDoorAmounts();
+    void moveRoom(string direction);
+    int random(int min, int max);
+    map<string, Room> &getRooms();
 };
 
 
