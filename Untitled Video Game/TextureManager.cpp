@@ -2,7 +2,7 @@
 
 map<string, Texture> TextureManager::textures;
 
-void TextureManager::loadTexture(string textureName)
+void TextureManager::LoadTexture(string textureName)
 {
 	//UPDATE THIS
 	string path = "images/" + textureName + ".png";
@@ -10,15 +10,15 @@ void TextureManager::loadTexture(string textureName)
 
 }
 
-Texture& TextureManager::getTexture(string textureName)
+Texture& TextureManager::GetTexture(string textureName)
 {
 	// TODO: insert return statement here
 	if (textures.find(textureName) == textures.end())
-		loadTexture(textureName);
+		LoadTexture(textureName);
 	return textures[textureName];
 }
 
-void TextureManager::clearTextures()
+void TextureManager::ClearTextures()
 {
 	textures.clear();
 }

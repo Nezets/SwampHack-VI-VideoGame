@@ -5,6 +5,9 @@ PC::PC() {
 	dmgLevel = 1;
 	msLevel = 1;
 	atkSpdLevel = 1;
+	setTexture(TextureManager::GetTexture("PC"));
+
+	setOrigin(160, 160);
 }
 
 //Getter Functions
@@ -27,6 +30,8 @@ int PC::getAtkSpdLevel()
 {
 	return atkSpdLevel;
 }
+
+
 
 //Level Functions
 void PC::expGain(int expGained) {

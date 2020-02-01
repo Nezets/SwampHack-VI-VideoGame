@@ -1,5 +1,10 @@
 #include "Character.h"
 
+bool Character::isInvincible()
+{
+	return invincible;
+}
+
 //Constructors
 Character::Character() {
 
@@ -16,46 +21,54 @@ Character::Character() {
 	atkSpd = 10;
 
 	//Level Stats
+
+	//Flags
+	alive = false;
+	moving = false;
 }
 
-int Character::getCurHp()
+float Character::getCurHp()
 {
 	return curHp;
 }
 
-int Character::getMaxHp()
+float Character::getMaxHp()
 {
 	return maxHp;
 }
 
-int Character::getMs()
+float Character::getMs()
 {
 	return 0;
 }
-
-int Character::getAtkSpd()
+float Character::getAtkSpd()
 {
 	return atkSpd;
 }
 
-int Character::getDamage()
+float Character::getDamage()
 {
 	return damage;
 }
 
-int Character::getCurX()
+float Character::getCurX()
 {
 	return curX;
 }
 
-int Character::getCurY()
+float Character::getCurY()
 {
 	return curY;
 }
 
-int Character::getAngle()
+float Character::getAngle()
 {
 	return angle;
+}
+
+sf::Vector2f Character::getCurVelocity()
+{
+	return curVelocity;
 }
 
 
@@ -75,10 +88,77 @@ void Character::heal(int healthGain) {
 	}
 }
 
-void Character::updatePosition(int x, int y)
+void Character::updatePosition(float x, float y)
 {
 	curX = x;
 	curY = y;
+}
+
+void Character::updateAngle(float x)
+{
+	angle = x;
+}
+
+void Character::pointMouseCursor(sf::RenderWindow& win)
+{
+	auto curPos = getPosition();
+	auto position = sf::Mouse::getPosition(win);
+
+	const float PI = 3.14159;
+
+	float dx = curPos.x - position.x;
+	float dy = curPos.y - position.y;
+
+	setRotation(atan2(dy, dx) * 180 / PI);
+}
+
+void Character::moveTowardMouse(sf::RenderWindow& win)
+{
+	if (moving) {
+		move(curVelocity * ms);
+	}
+	else {
+		auto curPos = getPosition();
+		auto position = sf::Mouse::getPosition(win);
+
+		float dx = curPos.x - position.x;
+		float dy = curPos.y - position.y;
+		float mag = -1*sqrt(dx * dx + dy*dy);
+		curVelocity = sf::Vector2f(dx/mag,dy/mag);
+		moving = true;
+	}
+}
+
+void Character::moveToPos(sf::Vector2f pos)
+{
+	if (moving) {
+		move(curVelocity * ms);
+	}
+	else {
+		auto curPos = getPosition();
+
+		float dx = curPos.x - pos.x;
+		float dy = curPos.y - pos.y;
+		float mag = -1 * sqrt(dx * dx + dy * dy);
+		curVelocity = sf::Vector2f(dx / mag, dy / mag);
+		moving = true;
+	}
+}
+
+void Character::moveToPos(float x, float y)
+{
+	if (moving) {
+		move(curVelocity * ms);
+	}
+	else {
+		auto curPos = getPosition();
+
+		float dx = curPos.x - x;
+		float dy = curPos.y - y;
+		float mag = -1 * sqrt(dx * dx + dy * dy);
+		curVelocity = sf::Vector2f(dx / mag, dy / mag);
+		moving = true;
+	}
 }
 
 //End Game Functions

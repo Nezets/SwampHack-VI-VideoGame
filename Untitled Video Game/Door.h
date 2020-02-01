@@ -1,3 +1,4 @@
+
 //
 // Created by Michael Ivanov on 1/31/2020.
 //
@@ -10,19 +11,19 @@
 #include "TextureManager.h"
 
 class Door : public sf::Sprite {
-    bool locked;
-    bool bossDoor;
-    bool visable;
+	bool locked;
+	bool bossDoor;
+	bool visable;
 public:
-    Door();
+	Door();
 
-    bool isLocked() const;
+	bool isLocked() const;
 
-    void setVisable(bool visable);
+	void setVisable(bool visable);
 
-    bool isBossDoor() const;
-    void setLocked(bool locked);
-    void setBossDoor(bool bossDoor);
+	bool isBossDoor() const;
+	void setLocked(bool locked);
+	void setBossDoor(bool bossDoor);
 
 };
 

@@ -5,38 +5,38 @@
 #include "Room.h"
 
 Room::Room() {
-    setTexture(TextureManager::GetTexture("floor"));
-    doorAmount = 0;
-    roomID = "";
-    bossRoom = false;
-    doorsLocked = false;
-    doors.resize(4);
+	setTexture(TextureManager::GetTexture("floor"));
+	doorAmount = 0;
+	roomID = "";
+	bossRoom = false;
+	doorsLocked = false;
+	doors.resize(4);
 }
 
 int Room::getDoorAmount() const {
-    return doorAmount;
+	return doorAmount;
 }
 
 string Room::getRoomId() {
-    return roomID;
+	return roomID;
 }
 
 bool Room::isBossRoom() const {
-    return bossRoom;
+	return bossRoom;
 }
 
 bool Room::isDoorsLocked() const {
-    return doorsLocked;
+	return doorsLocked;
 }
 
 void Room::incrementDoorAmount() {
-    Room::doorAmount++;
+	Room::doorAmount++;
 }
 
 void Room::setRoomId(string roomId) {
-    roomID = roomId;
+	roomID = roomId;
 }
 
-vector<Door> &Room::getDoors() {
-    return doors;
+vector<Door>& Room::getDoors() {
+	return doors;
 }

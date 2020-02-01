@@ -9,7 +9,6 @@ class PC : public Character{
 	int atkSpdLevel;
 
 	//Flags
-
 public:
 	PC();
 
@@ -20,6 +19,7 @@ public:
 
 	int getExp();
 
+	//Level Stuff
 	int getDmgLevel();
 	int getMsLevel();
 	int getAtkSpdLevel();

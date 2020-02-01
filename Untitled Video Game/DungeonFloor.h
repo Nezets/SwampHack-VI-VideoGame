@@ -1,3 +1,4 @@
+
 //
 // Created by Michael Ivanov on 1/31/2020.
 //
@@ -12,13 +13,13 @@
 
 
 class DungeonFloor {
-    map<string, Room> rooms;
+	map<string, Room> rooms;
 public:
-    DungeonFloor();
-    void randomizeRooms();
-    void setDoorAmounts();
-    int random(int min, int max);
-    const map<string, Room> &getRooms() const;
+	DungeonFloor();
+	void randomizeRooms();
+	void setDoorAmounts();
+	int random(int min, int max);
+	const map<string, Room>& getRooms() const;
 };
 
 

@@ -1,11 +1,15 @@
 #pragma once
-class Bullet
+#include "Character.h"
+class Bullet : public Character
 {
 	int damage;
+	int speed;
 	//Add Sprite stuff
-
-	Bullet(int damage_);
+public:
+	Bullet(float damage_);
 
 	int getDamage();
+	int getSpeed();
+
 };
 
