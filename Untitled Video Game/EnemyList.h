@@ -6,6 +6,7 @@ class EnemyList
 	vector<Enemy*> enemies;
 	BulletManager enemyBullets;
 
+public:
 	EnemyList();
 
 	void add(Enemy& enemy);
