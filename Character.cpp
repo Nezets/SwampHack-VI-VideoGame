@@ -74,6 +74,11 @@ sf::Vector2f Character::getCurVelocity()
 	return curVelocity;
 }
 
+int Character::getCounter()
+{
+	return counter;
+}
+
 bool Character::isHidden()
 {
 	return hidden;

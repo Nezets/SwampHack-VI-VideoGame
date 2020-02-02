@@ -44,6 +44,8 @@ public:
 	float getCurY();
 	float getAngle();
 	sf::Vector2f getCurVelocity();
+	int getCounter();
+
 	bool isHidden();
 
 	//Setters
