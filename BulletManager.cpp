@@ -32,10 +32,10 @@ void BulletManager::updateBullets(sf::RenderWindow& window)
 	}
 }
 
-void BulletManager::updateBullets(sf::RenderWindow& window, float x, float y)
+void BulletManager::updateBullets(sf::RenderWindow& window, sf::Vector2f pos)
 {
 	for (Bullet* bullet : bullets) {
-		bullet->moveToPos(x,y);
+		bullet->moveToPos(pos);
 
 		if (bullet->getPosition().x < 0 || bullet->getPosition().x > window.getSize().x || bullet->getPosition().y < 0 || bullet->getPosition().y > window.getSize().y) {
 			bullet->setHidden(true);

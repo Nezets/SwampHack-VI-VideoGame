@@ -11,6 +11,6 @@ public:
 
 	void addBullet(Bullet* bullet);
 	void updateBullets(sf::RenderWindow& window);
-	void updateBullets(sf::RenderWindow& window, float x, float y);
+	void updateBullets(sf::RenderWindow& window, sf::Vector2f pos);
 	bool bulletCollision(Character& obj);
 };
