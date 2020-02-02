@@ -1,4 +1,5 @@
 #include "Character.h"
+#include <SFML/Audio.hpp>
 
 bool Character::isInvincible()
 {
@@ -21,13 +22,17 @@ Character::Character() {
 	atkSpd = 10;
 
 	//Level Stats
-
+	curVelocity = sf::Vector2f(1, 1);
 	//Flags
 	alive = false;
 	moving = false;
 	hidden = false;
 
 	counter = 0;
+	//sound
+	buffer.loadFromFile("sounds/boom.wav");
+	sound.setBuffer(buffer);
+
 }
 
 float Character::getCurHp()
@@ -74,6 +79,11 @@ sf::Vector2f Character::getCurVelocity()
 	return curVelocity;
 }
 
+int Character::getCounter()
+{
+	return counter;
+}
+
 bool Character::isHidden()
 {
 	return hidden;
@@ -108,6 +118,7 @@ void Character::resetCounter()
 
 //HP Functions
 void Character::takeDamage(int dmgTaken) {
+	sound.play();
 	curHp -= dmgTaken;
 	if (curHp <= 0) {
 		death();
@@ -162,25 +173,29 @@ void Character::moveTowardMouse(sf::RenderWindow& win)
 	}
 }
 
-void Character::moveToPos(sf::Vector2f pos)
+void Character::moveToPos(sf::RenderWindow& window,sf::Vector2f pos)
 {
-	if (moving) {
+	/*if (moving) {
 		move(curVelocity * ms);
 	}
-	else {
+	else {*/
 		auto curPos = getPosition();
 
 		float dx = curPos.x - pos.x;
 		float dy = curPos.y - pos.y;
-		float mag = -1 * sqrt(dx * dx + dy * dy);
-		curVelocity = sf::Vector2f(dx / mag, dy / mag);
+		float mag = -1.f * sqrt(dx * dx + dy * dy);
+		if(mag != 0)
+			curVelocity = sf::Vector2f(dx / mag, dy / mag);
 		moving = true;
-	}
+		std::cout << dx << ", " << dy << std::endl;
+		move(curVelocity * ms);
+	//}
 }
 
 void Character::moveToPos(float x, float y)
 {
 	if (moving) {
+
 		move(curVelocity * ms);
 	}
 	else {
@@ -196,5 +211,6 @@ void Character::moveToPos(float x, float y)
 
 //End Game Functions
 void Character::death() {
+
 
 }

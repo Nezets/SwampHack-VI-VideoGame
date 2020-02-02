@@ -14,5 +14,6 @@ public:
 	Enemy(short x);
 	
 	short getType();
+	void moveTowardPoint(float x, float y);
 };
 

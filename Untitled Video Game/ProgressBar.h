@@ -5,11 +5,10 @@ class ProgressBar
 private:
 	sf::RectangleShape bar;
 	sf::RectangleShape background;
-	float locX;
-	float locY;
+	
 	float percentage;
 public:
-	ProgressBar(sf::RenderWindow& window);
+	ProgressBar();
 	void setPercentage(float perc);
 	void setColor(const sf::Color barColor);
 	void draw(sf::RenderWindow& window);

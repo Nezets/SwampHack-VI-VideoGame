@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "Enemy.h"
 #include "BulletManager.h"
 class EnemyList

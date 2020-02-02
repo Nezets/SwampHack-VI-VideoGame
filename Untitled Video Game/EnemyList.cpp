@@ -6,14 +6,14 @@ EnemyList::EnemyList()
 
 void EnemyList::add(Enemy& enemy)
 {
-	//enemies.push_back(enemy);
+	enemies.push_back(&enemy);
 }
 
-void EnemyList::updateEnemies(sf::RenderWindow&window, sf::Vector2f pcPos)
+void EnemyList::updateEnemies(sf::RenderWindow& window, sf::Vector2f pcPos)
 {
-	for (auto& enemy : enemies) {
+	for (auto* enemy : enemies) {
 		if (enemy->getType() == 1) {
-			enemy->moveToPos(pcPos);
+			enemy->moveToPos(window,pcPos);
 		}
 		else if (enemy->getType() == 2) {
 			
@@ -28,7 +28,7 @@ void EnemyList::updateEnemies(sf::RenderWindow&window, sf::Vector2f pcPos)
 			}
 		}
 
-		enemyBullets.updateBullets(window,pcPos);
+		//enemyBullets.updateBullets(window,pcPos);
 		window.draw(*enemy);
 	}
 	//enemyBullets.updateBullets();
